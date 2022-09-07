@@ -15,7 +15,7 @@ public class StudentController {
 
     List<Student> students = new ArrayList<>();
 
-    @GetMapping("/add-student-request-param")
+    @PostMapping("/add-student-request-param")
     public ResponseEntity<List<Student>> addStudentRequestParam(@RequestParam("name") String name, @RequestParam("age") int age) {
 
         Student student = new Student();
@@ -26,7 +26,7 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.OK).body(students);
     }
 
-    @GetMapping("/add-student-path-variable/{name}/{age}")
+    @PostMapping("/add-student-path-variable/{name}/{age}")
     public ResponseEntity<List<Student>> addStudentPathVariable(@PathVariable("name") String name, @PathVariable("age") int age) {
 
         Student student = new Student();
@@ -37,7 +37,7 @@ public class StudentController {
         return  ResponseEntity.status(HttpStatus.OK).body(students);
     }
 
-    @GetMapping("/add-student-request-body")
+    @PostMapping("/add-student-request-body")
     public ResponseEntity<List<Student>> addStudentRequestBody(@RequestBody Student student) {
         students.add(student);
         return ResponseEntity.status(HttpStatus.OK).body(students);
